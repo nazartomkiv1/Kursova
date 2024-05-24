@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Будівельний Супермаркет</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Будівельний Супермаркет</h1>
+    <nav>
+      <ul>
+        <li class="dropdown">
+          <a href="#" onclick="showPage('catalog')">Каталог</a>
+        </li>
+        <li><a href="#" onclick="showPage('about')">Про нас</a></li>
+        <li><a href="#" onclick="showPage('contacts')">Контакти</a></li>
+        <li><a href="#" onclick="showPage('cart')">Кошик</a></li>
+        <li class="dropdown">
+          <a href="#" id="account-link">Вхід / Реєстрація</a>
+          <div class="dropdown-content">
+            <a href="#" onclick="showPage('login')">Вхід</a>
+            <a href="#" onclick="showPage('register')">Реєстрація</a>
+          </div>
+        </li>
+        <li><a href="#" id="profile-link" class="hidden" onclick="showPage('profile')">Особистий Кабінет</a></li>
+        <li><a href="#" id="admin-link" class="hidden" onclick="showPage('admin')">Адмін панель</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <section id="catalog">
+      <h2>Каталог товарів</h2>
+      <div class="product-list" id="product-list">
+        <!-- Products will be displayed here -->
+        <div class="product-item" data-id="1" data-description="Високоякісний цемент для всіх видів будівництва." data-image="https://fenixcentr.lviv.ua/image/cache/catalog/obschestroj/m500-1000x1000.png" data-price="100">
+          <h3 class="product-name">Цемент</h3>
+          <img src="https://fenixcentr.lviv.ua/image/cache/catalog/obschestroj/m500-1000x1000.png" alt="Цемент">
+          <p>Ціна: 100 грн</p>
+          <input type="number" value="1" min="1" class="quantity">
+          <button class="add-to-cart button-primary">Додати в кошик</button>
+        </div>
+        <div class="product-item" data-id="2" data-description="Міцна цегла для будівництва будівель і стін." data-image="https://starti.com.ua/images/img-350/1568283602_cat.png" data-price="50">
+          <h3 class="product-name">Цегла</h3>
+          <img src="https://starti.com.ua/images/img-350/1568283602_cat.png" alt="Цегла">
+          <p>Ціна: 50 грн</p>
+          <input type="number" value="1" min="1" class="quantity">
+          <button class="add-to-cart button-primary">Додати в кошик</button>
+        </div>
+        <div class="product-item" data-id="3" data-description="Декоративна плитка для внутрішніх та зовнішніх робіт." data-image="https://stoffmark.com/wp-content/uploads/2021/08/x71a68a03-16ce-4206-9e5a-7b7f9e6396e6.png.pagespeed.ic.ITdmmkKSkb.png" data-price="200">
+          <h3 class="product-name">Плитка</h3>
+          <img src="https://stoffmark.com/wp-content/uploads/2021/08/x71a68a03-16ce-4206-9e5a-7b7f9e6396e6.png.pagespeed.ic.ITdmmkKSkb.png" alt="Плитка">
+          <p>Ціна: 200 грн</p>
+          <input type="number" value="1" min="1" class="quantity">
+          <button class="add-to-cart button-primary">Додати в кошик</button>
+        </div>
+        <div class="product-item" data-id="4" data-description="Керамоблок для будівництва стін і перегородок." data-image="images/keramoblok.jpg" data-price="300">
+          <h3 class="product-name">Керамоблок</h3>
+          <img src="images/keramoblok.jpg" alt="Керамоблок">
+          <p>Ціна: 300 грн</p>
+          <input type="number" value="1" min="1" class="quantity">
+          <button class="add-to-cart button-primary">Додати в кошик</button>
+        </div>
+        <div class="product-item" data-id="5" data-description="Якісний пісок для будівельних робіт." data-image="images/sand.jpg" data-price="150">
+          <h3 class="product-name">Пісок</h3>
+          <img src="images/sand.jpg" alt="Пісок">
+          <p>Ціна: 150 грн</p>
+          <input type="number" value="1" min="1" class="quantity"/>
+          <button class="add-to-cart button-primary">Додати в кошик</button>
+        </div>
+        <div class="product-item" data-id="6" data-description="Арматура для зміцнення бетонних конструкцій." data-image="images/rebar.jpg" data-price="500">
+          <h3 class="product-name">Арматура</h3>
+          <img src="images/rebar.jpg" alt="Арматура">
+          <p>Ціна: 500 грн</p>
+          <input type="number" value="1" min="1" class="quantity"/>
+          <button class="add-to-cart button-primary">Додати в кошик</button>
+        </div>
+  
+        <div class="product-item" data-id="7" data-description="Будівельні дошки для різних видів робіт." data-image="images/wood.jpg" data-price="120">
+          <h3 class="product-name">Дошки</h3>
+          <img src="images/wood.jpg" alt="Дошки">
+          <p>Ціна: 120 грн</p>
+          <input type="number" value="1" min="1" class="quantity"/>
+          <button class="add-to-cart button-primary">Додати в кошик</button>
+        </div>
+        <div class="product-item" data-id="8" data-description="Гіпсокартон для внутрішнього оздоблення." data-image="images/drywall.jpg" data-price="180">
+          <h3 class="product-name">Гіпсокартон</h3>
+          <img src="images/drywall.jpg" alt="Гіпсокартон">
+          <p>Ціна: 180 грн</p>
+          <input type="number" value="1" min="1" class="quantity">
+          <button class="add-to-cart button-primary">Додати в кошик</button>
+        </div>
+        <div class="product-item" data-id="9" data-description="Штукатурка для внутрішніх та зовнішніх робіт." data-image="images/plaster.jpg" data-price="90">
+          <h3 class="product-name">Штукатурка</h3>
+          <img src="images/plaster.jpg" alt="Штукатурка">
+          <p>Ціна: 90 грн</p>
+          <input type="number" value="1" min="1" class="quantity">
+          <button class="add-to-cart button-primary">Додати в кошик</button>
+        </div>
+        <div class="product-item" data-id="10" data-description="Інструменти для будівництва та ремонту." data-image="images/tools.jpg" data-price="250">
+          <h3 class="product-name">Інструменти</h3>
+          <img src="images/tools.jpg" alt="Інструменти">
+          <p>Ціна: 250 грн</p>
+          <input type="number" value="1" min="1" class="quantity">
+          <button class="add-to-cart button-primary">Додати в кошик</button>
+        </div>
+        
+        <div class="product-item" data-id="11" data-description="Цемент високої міцності для різних видів будівництва." data-image="images/cement.jpg" data-price="105">
+          <h3 class="product-name">Цемент Преміум</h3>
+          <img src="images/cement.jpg" alt="Цемент Преміум">
+          <p>Ціна: 105 грн</p>
+          <input type="number" value="1" min="1" class="quantity">
+          <button class="add-to-cart button-primary">Додати в кошик</button>
+        </div>
+        <div class="product-item" data-id="12" data-description="Сучасні ламінатні підлоги для вашого дому." data-image="images/laminate.jpg" data-price="300">
+          <h3 class="product-name">Ламінат</h3>
+          <img src="images/laminate.jpg" alt="Ламінат">
+          <p>Ціна: 300 грн</p>
+          <input type="number" value="1" min="1" class="quantity">
+          <button class="add-to-cart button-primary">Додати в кошик</button>
+        </div>
+        <div class="product-item" data-id="13" data-description="Якісні шпалери для внутрішніх робіт." data-image="images/wallpaper.jpg" data-price="220">
+          <h3 class="product-name">Шпалери</h3>
+          <img src="images/wallpaper.jpg" alt="Шпалери">
+          <p>Ціна: 220 грн</p>
+          <input type="number" value="1" min="1" class="quantity">
+          <button class="add-to-cart button-primary">Додати в кошик</button>
+        </div>
+        <div class="product-item" data-id="14" data-description="Високоякісна вапна для будівельних робіт." data-image="images/lime.jpg" data-price="85">
+          <h3 class="product-name">Вапна</h3>
+          <img src="images/lime.jpg" alt="Вапна">
+          <p>Ціна: 85 грн</p>
+          <input type="number" value="1" min="1" class="quantity">
+          <button class="add-to-cart button-primary">Додати в кошик</button>
+        </div>
+        <div class="product-item" data-id="15" data-description="Пластикові труби для водопостачання та каналізації." data-image="images/pipes.jpg" data-price="70">
+          <h3 class="product-name">Труби</h3>
+          <img src="images/pipes.jpg" alt="Труби">
+          <p>Ціна: 70 грн</p>
+          <input type="number" value="1" min="1" class="quantity">
+          <button class="add-to-cart button-primary">Додати в кошик</button>
+        </div>
+        <div class="product-item" data-id="16" data-description="Електричні інструменти для професійних робіт." data-image="images/electric-tools.jpg" data-price="600">
+          <h3 class="product-name">Електроінструменти</h3>
+          <img src="images/electric-tools.jpg" alt="Електроінструменти">
+          <p>Ціна: 600 грн</p>
+          <input type="number" value="1" min="1" class="quantity">
+          <button class="add-to-cart button-primary">Додати в кошик</button>
+        </div>
+        <div class="product-item" data-id="17" data-description="Клей для плитки та інших матеріалів." data-image="images/glue.jpg" data-price="90">
+          <h3 class="product-name">Клей</h3>
+          <img src="images/glue.jpg" alt="Клей">
+          <p>Ціна: 90 грн</p>
+          <input type="number" value="1" min="1" class="quantity">
+          <button class="add-to-cart button-primary">Додати в кошик</button>
+        </div>
+        <div class="product-item" data-id="18" data-description="Шпаклівка для внутрішніх та зовнішніх робіт." data-image="images/spackle.jpg" data-price="100">
+          <h3 class="product-name">Шпаклівка</h3>
+          <img src="images/spackle.jpg" alt="Шпаклівка">
+          <p>Ціна: 100 грн</p>
+          <input type="number" value="1" min="1" class="quantity">
+          <button class="add-to-cart button-primary">Додати в кошик</button>
+        </div>
+        <div class="product-item" data-id="19" data-description="Пінопласт для утеплення будівель." data-image="images/foam.jpg" data-price="150">
+          <h3 class="product-name">Пінопласт</h3>
+          <img src="images/foam.jpg" alt="Пінопласт">
+          <p>Ціна: 150 грн</p>
+          <input type="number" value="1" min="1" class="quantity">
+          <button class="add-to-cart button-primary">Додати в кошик</button>
+        </div>
+        <div class="product-item" data-id="20" data-description="Керамічна плитка для підлоги та стін." data-image="images/ceramic-tile.jpg" data-price="250">
+          <h3 class="product-name">Керамічна плитка</h3>
+          <img src="images/ceramic-tile.jpg" alt="Керамічна плитка">
+          <p>Ціна: 250 грн</p>
+          <input type="number" value="1" min="1" class="quantity">
+          <button class="add-to-cart button-primary">Додати в кошик</button>
+        </div>
+        <div class="product-item" data-id="21" data-description="Цементний розчин для будівельних робіт." data-image="images/cement-mix.jpg" data-price="110">
+          <h3 class="product-name">Цементний розчин</h3>
+          <img src="images/cement-mix.jpg" alt="Цементний розчин">
+          <p>Ціна: 110 грн</p>
+          <input type="number" value="1" min="1" class="quantity">
+          <button class="add-to-cart button-primary">Додати в кошик</button>
+        </div>
+        <div class="product-item" data-id="22" data-description="Мідні труби для водопостачання." data-image="images/copper-pipes.jpg" data-price="200">
+          <h3 class="product-name">Мідні труби</h3>
+          <img src="images/copper-pipes.jpg" alt="Мідні труби">
+          <p>Ціна: 200 грн</p>
+          <input type="number" value="1" min="1" class="quantity">
+          <button class="add-to-cart button-primary">Додати в кошик</button>
+        </div>
+        <div class="product-item" data-id="23" data-description="Будівельний розчин для кладки." data-image="images/mortar.jpg" data-price="90">
+          <h3 class="product-name">Будівельний розчин</h3>
+          <img src="images/mortar.jpg" alt="Будівельний розчин">
+          <p>Ціна: 90 грн</p>
+          <input type="number" value="1" min="1" class="quantity">
+          <button class="add-to-cart button-primary">Додати в кошик</button>
+        </div>
+        <div class="product-item" data-id="24" data-description="Фарба для внутрішніх та зовнішніх робіт." data-image="images/paint.jpg" data-price="80">
+          <h3 class="product-name">Фарба</h3>
+          <img src="images/paint.jpg" alt="Фарба">
+          <p>Ціна: 80 грн</p>
+          <input type="number" value="1" min="1" class="quantity">
+          <button class="add-to-cart button-primary">Додати в кошик</button>
+        </div>
+        <div class="product-item" data-id="25" data-description="Гідроізоляційні матеріали для будівель." data-image="images/waterproofing.jpg" data-price="130">
+          <h3 class="product-name">Гідроізоляція</h3>
+          <img src="images/waterproofing.jpg" alt="Гідроізоляція">
+          <p>Ціна: 130 грн</p>
+          <input type="number" value="1" min="1" class="quantity">
+          <button class="add-to-cart button-primary">Додати в кошик</button>
+        </div>
+        <div class="product-item" data-id="26" data-description="Будівельний скотч для різних робіт." data-image="images/tape.jpg" data-price="50">
+          <h3 class="product-name">Скотч</h3>
+          <img src="images/tape.jpg" alt="Скотч">
+          <p>Ціна: 50 грн</p>
+          <input type="number" value="1" min="1" class="quantity">
+          <button class="add-to-cart button-primary">Додати в кошик</button>
+        </div>
+        <div class="product-item" data-id="27" data-description="Будівельні рукавиці для захисту рук." data-image="images/gloves.jpg" data-price="20">
+          <h3 class="product-name">Рукавиці</h3>
+          <img src="images/gloves.jpg" alt="Рукавиці">
+          <p>Ціна: 20 грн</p>
+          <input type="number" value="1" min="1" class="quantity">
+          <button class="add-to-cart button-primary">Додати в кошик</button>
+        </div>
+        <div class="product-item" data-id="28" data-description="Зварювальні матеріали для різних робіт." data-image="images/welding-materials.jpg" data-price="150">
+          <h3 class="product-name">Зварювальні матеріали</h3>
+          <img src="images/welding-materials.jpg" alt="Зварювальні матеріали">
+          <p>Ціна: 150 грн</p>
+          <input type="number" value="1" min="1" class="quantity">
+          <button class="add-to-cart button-primary">Додати в кошик</button>
+        </div>
+        <div class="product-item" data-id="29" data-description="Клінкерна цегла для облицювання." data-image="images/clinker-brick.jpg" data-price="200">
+          <h3 class="product-name">Клінкерна цегла</h3>
+          <img src="images/clinker-brick.jpg" alt="Клінкерна цегла">
+          <p>Ціна: 200 грн</p>
+          <input type="number" value="1" min="1" class="quantity">
+          <button class="add-to-cart button-primary">Додати в кошик</button>
+        </div>
+        <div class="product-item" data-id="30" data-description="Шпаклівка для підготовки стін до фарбування." data-image="images/finishing-spackle.jpg" data-price="95">
+          <h3 class="product-name">Шпаклівка фінішна</h3>
+          <img src="images/finishing-spackle.jpg" alt="Шпаклівка фінішна">
+          <p>Ціна: 95 грн</p>
+          <input type="number" value="1" min="1" class="quantity">
+          <button class="add-to-cart button-primary">Додати в кошик</button>
+        </div>
+      </div>
+    </section>
+    
+    <section id="about" class="hidden">
+      <h2>Про нас</h2>
+      <p>Наш будівельний супермаркет пропонує широкий асортимент будівельних матеріалів та інструментів. Ми працюємо з найкращими постачальниками, щоб забезпечити високу якість продукції для наших клієнтів.</p>
+      <p>Наша компанія "Будівельний Супермаркет" заснована з метою забезпечення високоякісними будівельними матеріалами та інструментами для професіоналів та аматорів. Ми пропонуємо широкий асортимент продукції від провідних виробників, щоб задовольнити всі потреби наших клієнтів.</p>
+      <p>Ми прагнемо до постійного вдосконалення наших послуг і забезпечення найвищих стандартів якості. Наші фахівці завжди готові надати професійні консультації та допомогу у виборі необхідних матеріалів.</p>
+      <p>Завітайте до нас та переконайтеся в нашій відданості якості та обслуговуванню!</p>
+    </section>
+
+    <section id="contacts" class="hidden">
+      <h2>Контакти</h2>
+      <p>Адреса: вул. Будівельна, 10, Київ</p>
+      <p>Телефон: (044) 123-45-67</p>
+      <p>Email: info@buildsupermarket.ua</p>
+    </section>
+    
+    <section id="cart" class="hidden">
+      <h2>Кошик</h2>
+      <ul id="cart-items"></ul>
+      <p id="empty-cart">Кошик порожній</p>
+      <button class="button-primary" onclick="showOrderConfirmation()">Оформити замовлення</button>
+    </section>
+    
+    <section id="product-details" class="hidden">
+      <h2>Деталі товару</h2>
+      <img id="product-image" src="" alt="Зображення товару">
+      <p id="product-description"></p>
+      <input type="number" id="detail-quantity" value="1" min="1">
+      <button class="button-primary" id="add-to-cart-detail">Додати в кошик</button>
+      <button class="button-secondary" onclick="showPage('catalog')">Назад до каталогу</button>
+    </section>
+    
+    <section id="login" class="hidden">
+      <h2>Вхід</h2>
+      <form id="login-form">
+        <label for="login-email">Емейл:</label>
+        <input type="email" id="login-email" required>
+        
+        <label for="login-password">Пароль:</label>
+        <input type="password" id="login-password" required>
+        
+        <button class="button-primary" type="submit">Увійти</button>
+      </form>
+    </section>
+    
+    <section id="register" class="hidden">
+      <h2>Реєстрація</h2>
+      <form id="register-form">
+        <label for="first-name">Ім'я:</label>
+        <input type="text" id="first-name" required>
+        
+        <label for="last-name">Прізвище:</label>
+        <input type="text" id="last-name" required>
+        
+        <label for="phone">Номер телефону:</label>
+        <input type="tel" id="phone" required>
+        
+        <label for="register-email">Емейл:</label>
+        <input type="email" id="register-email" required>
+        
+        <label for="register-password">Пароль:</label>
+        <input type="password" id="register-password" required>
+        
+        <label for="birthday">День народження (не обов'язково):</label>
+        <input type="date" id="birthday">
+        
+        <button class="button-primary" type="submit">Зареєструватися</button>
+      </form>
+    </section>
+
+    <section id="profile" class="hidden">
+      <h2>Особистий Кабінет</h2>
+      <p id="profile-name"></p>
+      <p id="profile-email"></p>
+      <h3>Ваші замовлення:</h3>
+      <ul id="order-list"></ul>
+      <button class="button-secondary" onclick="logout()">Вийти з акаунту</button>
+      <button class="button-danger" onclick="deleteAccount()">Видалити акаунт</button>
+    </section>
+
+    <section id="admin" class="hidden">
+      <h2>Адмін панель</h2>
+      <div>
+        <h3>Користувачі</h3>
+        <ul id="user-list"></ul>
+      </div>
+      <div>
+        <h3>Товари</h3>
+        <ul id="product-list-admin"></ul>
+      </div>
+      <div>
+        <h3>Замовлення</h3>
+        <ul id="order-list-admin"></ul>
+      </div>
+    </section>
+  </main>
+  
+  <div id="order-confirmation" class="modal hidden">
+    <div class="modal-content">
+      <span class="close" onclick="closeOrderConfirmation()">&times;</span>
+      <h2>Підтвердження замовлення</h2>
+      <p>Наш консультант зателефонує вам для уточнення замовлення</p>
+      <form id="order-form">
+        <label for="order-name">Ім'я:</label>
+        <input type="text" id="order-name" required>
+        
+        <label for="order-phone">Номер телефону:</label>
+        <input type="tel" id="order-phone" required>
+        
+        <label for="address">Адреса доставки:</label>
+        <input type="text" id="address" required>
+        
+        <button class="button-primary" type="submit">Підтвердити замовлення</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="order-success" class="modal hidden">
+    <div class="modal-content">
+      <span class="close" onclick="closeOrderSuccess()">&times;</span>
+      <h2>Дякуємо за замовлення!</h2>
+      <p>Наш консультант скоро зв'яжеться з вами для уточнення даних.</p>
+      <button class="button-primary" onclick="closeOrderSuccess()">Закрити</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Будівельний Супермаркет. Всі права захищені.</p>
+  </footer>
+  
+  <script src="script.js"></script>
+</body>
+</html>
